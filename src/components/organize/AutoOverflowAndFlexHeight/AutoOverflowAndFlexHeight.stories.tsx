@@ -5,7 +5,7 @@ import React from 'react';
 import {html} from "./data";
 
 const meta = {
-    title: 'Laboratory/AutoOverflowAndFlexHeight',
+    title: 'Organize/AutoOverflowAndFlexHeight',
     component: AutoOverflowAndFlexHeight,
     parameters: {
         docs: {
