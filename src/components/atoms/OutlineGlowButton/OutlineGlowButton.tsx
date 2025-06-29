@@ -1,4 +1,4 @@
-import {FCChildrenProps} from '@acrool/react-grid';
+import {FCChildrenProps} from '@acrool/react-types';
 import styled, {keyframes} from 'styled-components';
 
 

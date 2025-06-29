@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React, { useRef, useEffect, useState } from 'react';
 
 import StreamVolumeControl from './StreamVolumeControl';

@@ -1,4 +1,4 @@
-import {IFormFieldProps} from '@acrool/react-grid';
+import {IFormFieldWithPlaceholderProps} from '@acrool/react-types';
 
-export interface ITextFieldProps extends IFormFieldProps<HTMLInputElement>{
+export interface ITextFieldProps extends IFormFieldWithPlaceholderProps<HTMLInputElement>{
 }

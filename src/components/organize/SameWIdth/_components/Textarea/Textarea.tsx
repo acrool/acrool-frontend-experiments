@@ -1,4 +1,4 @@
-import {FCProps} from '@acrool/react-grid';
+import {FCProps} from '@acrool/react-types';
 
 import {TextareaRoot} from './styles';
 import {ITextareaProps} from './types';
