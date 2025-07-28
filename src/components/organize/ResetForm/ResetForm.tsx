@@ -9,6 +9,7 @@ import {CheckButtonGroup} from '@/components/forms/CheckButton';
 import Textarea from '@/components/forms/Textarea';
 import TextField from '@/components/forms/TextField';
 import {needService} from '@/components/organize/ResetForm/data';
+import {useNameAPI, useServiceAPI} from "@/components/organize/ResetForm/useAPI";
 
 interface IForm {
     name: string
@@ -21,6 +22,9 @@ interface IForm {
 
 const ResetForm = () => {
 
+    const {services, success: servicesSuccess} = useServiceAPI();
+    const {name, success: nameSuccess} = useNameAPI();
+
     const HookForm = useForm<IForm>({
         defaultValues: {
             name: 'Imagine',
@@ -30,6 +34,15 @@ const ResetForm = () => {
             services: [],
         }
     });
+
+
+    useEffect(() => {
+        if(servicesSuccess){
+            HookForm.resetField('services', {
+                defaultValue: services?.map(val => val) || [],
+            });
+        }
+    }, [services, servicesSuccess]);
 
 
     useEffect(() => {
@@ -46,12 +59,14 @@ const ResetForm = () => {
             });
         }, 1500);
 
-        setTimeout(() => {
-            HookForm.resetField('services', {
-                defaultValue: ['1', '3']
-            });
-        }, 1500);
     }, []);
+
+
+    useEffect(() => {
+        HookForm.reset({
+            name,
+        });
+    }, [name, nameSuccess]);
 
 
     /**
@@ -64,7 +79,10 @@ const ResetForm = () => {
     };
 
 
-    return <form onSubmit={HookForm.handleSubmit(handleOnSubmit)}>
+    return <form
+        onSubmit={HookForm.handleSubmit(handleOnSubmit)}
+        onReset={() => HookForm.reset()}
+    >
         <Flex column>
 
             <FormGroup>
@@ -172,10 +190,13 @@ const ResetForm = () => {
                 </Flex>
             </FormGroup>
 
-            <FormGroup>
+            <FormGroup className="gap-3 d-flex">
                 <SubmitButton type="submit">
-                    送出！超級簡單！
+                    送出
                 </SubmitButton>
+                <ResetButton type="reset">
+                    重設
+                </ResetButton>
             </FormGroup>
 
         </Flex>
@@ -192,6 +213,13 @@ const FormGroup = styled.div`
 
 const SubTitle = styled.div`
     margin-bottom: 10px;
+`;
+
+
+const ResetButton = styled(Button)`
+    background: #ff8383;
+    color: #fff;
+    border-radius: 99em;
 `;
 
 
