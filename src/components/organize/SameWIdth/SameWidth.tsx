@@ -1,6 +1,6 @@
 import {Flex} from "@acrool/react-grid";
-import TextField from "./_components/TextField";
-import Textarea from "./_components/Textarea";
+import TextField from "@/components/forms/TextField";
+import Textarea from "@/components/forms/Textarea";
 
 
 const SameWidth = () => {
