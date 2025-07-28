@@ -1,12 +1,13 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
+
 import StreamVolumeControl from './StreamVolumeControl';
 
 interface LocalVideoGuideProps {
-    videoSources: string | string[];
-    initialVolume?: number;
-    showPercentage?: boolean;
-    showGuide?: boolean;
+    videoSources: string | string[]
+    initialVolume?: number
+    showPercentage?: boolean
+    showGuide?: boolean
 }
 
 
@@ -27,7 +28,7 @@ const LocalVideoGuide: React.FC<LocalVideoGuideProps> = ({
     const [hasError, setHasError] = useState(false);
 
     const handleVolumeChange = (volume: number, isMuted: boolean) => {
-        console.log('本地 Video 音量調整:', { volume, isMuted });
+        console.log('本地 Video 音量調整:', {volume, isMuted});
 
         if (!videoRef.current || !isPlayerReady) {
             console.warn('本地 Video 播放器尚未準備就緒');

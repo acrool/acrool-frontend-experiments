@@ -17,10 +17,10 @@ interface IPromotionButtonProps {
  * 滑鼠時會顯示視頻覆蓋
  */
 const PromotionButton = ({
-     className,
-     style,
-     children,
- }: IPromotionButtonProps & FCChildrenProps) => {
+    className,
+    style,
+    children,
+}: IPromotionButtonProps & FCChildrenProps) => {
 
 
     return <PromotionButtonRoot

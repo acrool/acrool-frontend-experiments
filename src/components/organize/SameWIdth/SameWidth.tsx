@@ -1,6 +1,7 @@
-import {Flex} from "@acrool/react-grid";
-import TextField from "@/components/forms/TextField";
-import Textarea from "@/components/forms/Textarea";
+import {Flex} from '@acrool/react-grid';
+
+import Textarea from '@/components/forms/Textarea';
+import TextField from '@/components/forms/TextField';
 
 
 const SameWidth = () => {
@@ -15,7 +16,7 @@ const SameWidth = () => {
             {data.map(row => {
                 return <TextField
                     placeholder={row.text}
-                />
+                />;
             })}
         </Flex>
 

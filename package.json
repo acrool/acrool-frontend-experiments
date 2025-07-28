@@ -6,6 +6,8 @@
     "scripts": {
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
+        "lint": "next lint",
+        "lint:fix": "eslint ./src --fix",
         "pages:dev": "wrangler pages dev --proxy 3000 -- yarn dev",
         "pages:deploy": "NODE_VERSION=20 yarn build-storybook && wrangler pages deploy ./storybook-static --project-name=acrool-frontend-experiments --branch main"
     },
@@ -14,7 +16,7 @@
     },
     "dependencies": {
         "@acrool/js-utils": "^3.2.12",
-        "@acrool/react-grid": "6.1.2",
+        "@acrool/react-grid": "6.1.4-alpha.1",
         "@acrool/react-types": "0.0.4",
         "@chromatic-com/storybook": "^4.0.1",
         "@emotion/is-prop-valid": "^1.2.2",

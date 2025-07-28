@@ -20,21 +20,16 @@ interface IProps extends FCChildrenProps {
  * @param type
  * @param onClick
  * @param onPointerDown
- * @param onFocus
  * @param children
  * @param disabled
- * @param spring
  * @param ref
  */
 const BaseButton = ({
     className,
     type = 'button',
     onClick,
-    onPointerDown,
-    onFocus,
     children,
     disabled = false,
-    spring = false,
     ref,
 }: IProps) => {
 
@@ -43,8 +38,6 @@ const BaseButton = ({
         className={className}
         type={type}
         onClick={onClick}
-        onFocus={onFocus}
-        onPointerDown={onPointerDown}
         disabled={disabled}
     >
         {children}
@@ -57,7 +50,7 @@ export default BaseButton;
 
 
 
-const BaseButtonRoot = styled.div`
+const BaseButtonRoot = styled.button`
     padding: 0;
     display: block;
     color: inherit;

@@ -1,14 +1,14 @@
-import React, { useState, useCallback } from 'react';
+import React, {useCallback,useState} from 'react';
 
 export interface StreamVolumeControlProps {
     /** 初始音量 (0-100) */
-    initialVolume?: number;
+    initialVolume?: number
     /** 音量變化回調 */
-    onVolumeChange?: (volume: number, isMuted: boolean) => void;
+    onVolumeChange?: (volume: number, isMuted: boolean) => void
     /** 是否顯示音量百分比 */
-    showPercentage?: boolean;
+    showPercentage?: boolean
     /** 自定義樣式 */
-    className?: string;
+    className?: string
 }
 
 const StreamVolumeControl: React.FC<StreamVolumeControlProps> = ({
@@ -87,7 +87,7 @@ const StreamVolumeControl: React.FC<StreamVolumeControlProps> = ({
             </button>
 
             {/* 音量滑動條 */}
-            <div style={{ flex: 1, position: 'relative' }}>
+            <div style={{flex: 1, position: 'relative'}}>
                 <input
                     type="range"
                     min="0"

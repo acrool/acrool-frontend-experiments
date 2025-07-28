@@ -1,24 +1,25 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
+
 import StreamVolumeControl from './StreamVolumeControl';
 
 // YouTube Player API 類型定義
 declare global {
     interface Window {
-        YT: any;
-        onYouTubeIframeAPIReady: () => void;
+        YT: any
+        onYouTubeIframeAPIReady: () => void
     }
 }
 
 export interface YouTubePlayerProps {
     /** YouTube 影片 ID */
-    videoId: string;
+    videoId: string
     /** 初始音量 (0-100) */
-    initialVolume?: number;
+    initialVolume?: number
     /** 是否顯示音量百分比 */
-    showPercentage?: boolean;
+    showPercentage?: boolean
     /** 自定義類名 */
-    className?: string;
+    className?: string
 }
 
 
@@ -193,7 +194,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({
     }, [apiLoaded, videoId, initialVolume]);
 
     const handleVolumeChange = (volume: number, isMuted: boolean) => {
-        console.log('YouTube 音量調整:', { volume, isMuted });
+        console.log('YouTube 音量調整:', {volume, isMuted});
 
         if (!playerRef.current || !isPlayerReady) {
             console.warn('YouTube Player 尚未準備就緒');
@@ -220,7 +221,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({
             <PlayerArea ref={containerRef}>
                 {!isPlayerReady && !hasError && (
                     <LoadingOverlay>
-                        <div style={{ marginBottom: '10px' }}>🔄</div>
+                        <div style={{marginBottom: '10px'}}>🔄</div>
                         <div>載入 YouTube 播放器中...</div>
                     </LoadingOverlay>
                 )}

@@ -2,14 +2,15 @@ import {FCChildrenProps} from '@acrool/react-types';
 import styled from 'styled-components';
 
 interface IProps extends FCChildrenProps {
-
+    type: 'button'|'submit'|'reset'
 }
 
 const Button = ({
     className,
-    children
+    children,
+    type = 'button'
 }: IProps) => {
-    return <ButtonRoot type="button" className={className}>
+    return <ButtonRoot type={type} className={className}>
         {children}
     </ButtonRoot>;
 };

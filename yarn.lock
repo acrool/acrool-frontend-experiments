@@ -10,10 +10,10 @@
     big.js "^7.0.1"
     dayjs "^1.x"
 
-"@acrool/react-grid@6.1.2":
-  version "6.1.2"
-  resolved "https://registry.yarnpkg.com/@acrool/react-grid/-/react-grid-6.1.2.tgz#c87199f70903bed53e70720bb644e256bb067153"
-  integrity sha512-SueBx8N1BMvm0O3tU7Ewubfa+bcfnXSyvt8fbFXdClSGZGBh1KSFM9sYTHZgMnXAKkEwdpD8qpw7HJCj8xJVjQ==
+"@acrool/react-grid@6.1.4-alpha.1":
+  version "6.1.4-alpha.1"
+  resolved "https://registry.yarnpkg.com/@acrool/react-grid/-/react-grid-6.1.4-alpha.1.tgz#584ce1fba784624f654d265fe1c01a18f573dda7"
+  integrity sha512-+ip5RdC6BCDlkVx85DmO01pGmcIHctGqEJyQW5oVSxJwUr/2YzQndG8MieIKte80Y1FdaaFstvvGKJOMrCa2tw==
 
 "@acrool/react-types@0.0.4":
   version "0.0.4"
