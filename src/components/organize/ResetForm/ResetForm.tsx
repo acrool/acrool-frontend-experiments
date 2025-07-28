@@ -9,7 +9,7 @@ import {CheckButtonGroup} from '@/components/forms/CheckButton';
 import Textarea from '@/components/forms/Textarea';
 import TextField from '@/components/forms/TextField';
 import {needService} from '@/components/organize/ResetForm/data';
-import {useNameAPI, useServiceAPI} from "@/components/organize/ResetForm/useAPI";
+import {useNameAPI, useServiceAPI} from '@/components/organize/ResetForm/useAPI';
 
 interface IForm {
     name: string

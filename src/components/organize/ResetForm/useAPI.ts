@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState} from 'react';
 
 export const useNameAPI = () => {
 
@@ -10,14 +10,14 @@ export const useNameAPI = () => {
             setName('Imagine');
             setSuccess(true);
         }, 700);
-    }, [])
+    }, []);
 
 
     return {
         success,
         name,
     };
-}
+};
 
 export const useServiceAPI = () => {
 
@@ -29,10 +29,10 @@ export const useServiceAPI = () => {
             setServices(['1', '3', '4']);
             setSuccess(true);
         }, 1000);
-    }, [])
+    }, []);
 
     return {
         success,
         services,
     };
-}
+};
