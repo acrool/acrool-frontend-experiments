@@ -1,110 +1,141 @@
+import {media} from '@acrool/react-grid';
 import {FCChildrenProps} from '@acrool/react-types';
 import styled, {keyframes} from 'styled-components';
 
+import BaseButton from '../BaseButton';
 
 
-interface IProps extends FCChildrenProps{
-    type?: 'submit'|'button'
-    onClick?: () => void
+interface IPromotionButtonProps {
+
 }
 
 
+
 /**
- * 按鈕
- * @param className
- * @param children
- * @param themeColor 主題顏色
- * @param isBlock 是否佔滿
- * @param size 大小
- * @param type
- * @param radius 圓角
- * @param onClick
+ * 優惠活動按鈕
+ * 帶光暈效果
+ * 滑鼠時會顯示視頻覆蓋
  */
-
-const OutlineGlowButton = ({
-    className,
-    children,
-    type = 'button',
-    onClick,
-}: IProps) => {
-
-    const labelProps = {children, type};
+const PromotionButton = ({
+     className,
+     style,
+     children,
+ }: IPromotionButtonProps & FCChildrenProps) => {
 
 
-    return <TestButtonRoot className={className}
-        {...labelProps}
-        onClick={onClick}
+    return <PromotionButtonRoot
+        className={className}
+        style={style}
     >
-        <Children>
+        <Text>
             {children}
-        </Children>
-    </TestButtonRoot>;
+        </Text>
+
+    </PromotionButtonRoot>;
 };
 
-export default OutlineGlowButton;
+export default PromotionButton;
+
+
+
+const Text = styled.div`
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    z-index: 15;
+    border-radius: 14px;
+    background: linear-gradient(90deg, rgba(255, 175, 175, 0.50) 0%, rgba(42, 213, 250, 0.50) 49.5%, rgba(137, 81, 255, 0.50) 100%);
+    background-color: rgba(0,0,0,0);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.30) inset, 0px 20px 80px 0px rgba(153, 51, 255, 0.50);
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+
+    transition: background-color .5s;
+
+     ${media.lg`
+        background-color: #000;
+     `}
+
+`;
 
 
 
 
 const lineLightAnimation = keyframes`
     from{
-        transform: rotate(0deg);
-        //transform: rotate(0deg) translate(-50%, -50%);
+        transform: translate(-50%, -50%) rotate(0deg);
     }
     to{
-        transform: rotate(360deg);
-        //transform: rotate(360deg) translate(-50%, -50%);
+        transform: translate(-50%, -50%) rotate(360deg);
     }
 `;
 
 
-const Children = styled.div`
-    position: relative;
-    z-index: 1;
-    border-radius: 4px;
-    background-color: rgb(27, 28, 29);
-    color: #fff;
-    padding: 10px 20px;
-`;
-
-
-const TestButtonRoot = styled.button`
-
-    position: relative;
-    line-height: 20px;
-    //width: 100%;
+const PromotionButtonRoot = styled(BaseButton)`
+    display: flex;
+    width: 264px;
+    height: 56px;
     padding: 1px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 14px;
+    position: relative;
     overflow: hidden;
-    background: var(--sb-sidebar-bottom-card-background, #1B1C1D);
-    border-radius: var(--sb-sidebar-bottom-card-border-radius, 5px);
-    box-shadow: rgb(0 0 0 / 33%) -4px 2px 9px 1px;
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 0.15s;
+    cursor: pointer;
+    transform: translateY(0);
+    transform-origin: center center;
 
 
-    &:disabled {
-        opacity: 0.6;
+
+    transition: transform .6s, box-shadow .3s;
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        background: linear-gradient(90deg, rgba(255, 175, 175, .5) 0%, rgba(42, 213, 250, .5) 49.5%, rgba(137, 81, 255, .5) 100%);
     }
-
 
     &:after {
         content: "";
         display: block;
         position: absolute;
-        left: -25%;
-        top: -200%;
-        width: 150%;
+        width: 100%;
         height: auto;
         aspect-ratio: 1;
 
         animation: 3s linear 0s infinite normal none running ${lineLightAnimation};
         background: conic-gradient(transparent 90deg, rgb(2, 156, 253) 150deg, rgb(55, 213, 211) 210deg, transparent 270deg);
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        transform: translate(-50%, -50%) rotate(45deg);
+        transform-origin: center center;
+
+
         opacity: 1;
         will-change: auto;
     }
 
 
-`;
+    ${media.lg`
+        &:hover {
 
+            box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.30) inset, 0px 20px 80px 0px rgba(153, 51, 255, 0.50);
+            transform: translateY(-10px);
+        }
+    `}
+
+`;
 
